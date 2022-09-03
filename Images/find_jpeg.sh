@@ -13,7 +13,7 @@ mkdir -p "${OUTPUT_DIR}"
 
 for FILE in *.jpg; do
 	echo "looking for ${FILE%.*}.JPG"
-    find ${SEARCH_DIR} -type f -name "${FILE%.*}.JPG" -exec cp --verbose "{}" "${OUTPUT_DIR}" \;
+    find ${SEARCH_DIR} -type f -name "${FILE%.*}.JPG" -exec cp --verbose "{}" "${OUTPUT_DIR}/${FILE%.*} (camera version).JPG" \;
 done
 
 read -n 1 -s -r -p "Done. Press any key to continue"

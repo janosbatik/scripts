@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ -z "$1" ];
-   then echo "using current dir";
-   else cd $1;
-+fi
+   then echo "using current dir"; 
+   else cd "$1"; 
+fi
 BASE_DIR=${PWD##*/}
 read -p "sperate all jpgs and raws in \"${BASE_DIR}\"? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 JPEG_DIR="./${BASE_DIR} JPEG/"

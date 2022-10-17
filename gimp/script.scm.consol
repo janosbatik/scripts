@@ -1,0 +1,21 @@
+
+(define image (car (gimp-file-load RUN-NONINTERACTIVE "C:/Users/Personal/Desktop/Painting Resources/pizza/pizza-blur.jpg" "C:/Users/Personal/Desktop/Painting Resources/pizza/pizza-blur.jpg")))
+(gimp-display-new image)
+
+(define drawable (car (gimp-image-get-active-layer image)))
+
+(define numGridLines 3)
+
+(define width (car (gimp-image-width image)))
+(define height (car (gimp-image-height image)))
+
+(define black '(0 0 0))
+(define opacity 120)
+(define offset 0)
+
+(define hspace (/ height numGridLines))
+(define vspace (/ width numGridLines))
+(define lineThickness 2)
+
+(plug-in-grid RUN-NONINTERACTIVE image drawable lineThickness hspace offset black opacity lineThickness vspace offset black opacity 0 0 offset black opacity)
+(gimp-file-save RUN-NONINTERACTIVE image drawable "C:/Users/Personal/Desktop/Painting Resources/pizza/pizza-blur2.jpg" "C:/Users/Personal/Desktop/Painting Resources/pizza/pizza-blur2.jpg")
